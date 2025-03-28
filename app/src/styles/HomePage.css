@@ -1,0 +1,49 @@
+/* Homepage.css */
+.homepage {
+  font-family: Arial, sans-serif;
+}
+
+.about-us, .articles, .footer {
+  padding: 60px 20px;
+}
+
+.carousel-container {
+  display: flex;
+  gap: 20px;
+}
+
+.articles-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.show-more-btn {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.show-more-btn:hover {
+  background-color: #0056b3;
+}
+
+.footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+.footer .social-media-links a {
+  margin: 0 10px;
+  color: white;
+  text-decoration: none;
+}
+
+.footer .social-media-links a:hover {
+  text-decoration: underline;
+}

@@ -1,0 +1,36 @@
+/* Footer.css */
+.footer {
+    background-color: #222;
+    color: white;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .footer-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .about-us {
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+    opacity: 0.8;
+  }
+  
+  .copyright {
+    font-size: 0.8rem;
+    opacity: 0.7;
+    margin-bottom: 15px;
+  }
+  
+  .social-media a {
+    margin: 0 10px;
+    color: white;
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+  }
+  
+  .social-media a:hover {
+    color: red;
+  }
+  

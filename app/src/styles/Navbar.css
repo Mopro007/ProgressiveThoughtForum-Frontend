@@ -1,0 +1,50 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #333;
+    color: white;
+  }
+  
+  .navbar-left {
+    display: flex;
+    gap: 15px;
+  }
+  
+  .navbar-link {
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  .navbar-link:hover {
+    color: #007bff;
+  }
+  
+  .navbar-center {
+    display: flex;
+    gap: 15px;
+  }
+  
+  .search-input {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  .filter-select {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  .navbar-right .user-icon {
+    cursor: pointer;
+  }
+  
+  .navbar-right .user-icon img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
+  
