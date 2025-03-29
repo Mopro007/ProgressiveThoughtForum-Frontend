@@ -1,0 +1,70 @@
+.carousel-container {
+    width: 100vw; 
+    height: 60vh;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .carousel-slide {
+    width: 100vw;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 1s ease-in-out;
+  }
+  
+  .carousel-item {
+    width: 100vw;
+    height: 100%;
+    position: relative;
+  }
+  
+  .carousel-image {
+    width: 100vw;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+  }
+  
+  .carousel-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100%;
+    background-color: rgba(139, 0, 0, 0.3); /* Dark red overlay with 30% opacity */
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .carousel-title {
+    align-self: self-start;
+    margin-left: 20px;
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  .carousel-btn {
+    align-self: self-start;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    background-color: rgba(255, 255, 255, 0.7); /* Light button background */
+    color: #333;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+  }
+  
+  .carousel-btn:hover {
+    background-color: rgba(255, 255, 255, 1);
+  }
+  
+  

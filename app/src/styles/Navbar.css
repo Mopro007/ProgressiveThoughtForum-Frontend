@@ -1,13 +1,23 @@
 .navbar {
     display: flex;
     justify-content: space-between;
-    padding: 20px;
-    background-color: #333;
+    align-items: center;
+    width: 100%vw;
+    height: 80px;
+    padding: 0px 20px;
+    background-color: darkred;
     color: white;
+  }
+
+  h1 {
+    font-size: 24px;
+    margin: 0;
   }
   
   .navbar-left {
     display: flex;
+    justify-content: center;
+    align-items: center;
     gap: 15px;
   }
   
@@ -18,24 +28,36 @@
   }
   
   .navbar-link:hover {
-    color: #007bff;
+    text-decoration: underline;
   }
   
   .navbar-center {
     display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+    height: 100%;
     gap: 15px;
   }
   
   .search-input {
     padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
+    border-radius: 0px;
+    border: none;
+    width: 100%;
   }
-  
-  .filter-select {
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
+
+  .search-input:focus {
+    outline: none;
+  }
+
+  .navbar-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 10%;
+    height: 100%;
+    gap: 15px;
   }
   
   .navbar-right .user-icon {
@@ -43,8 +65,8 @@
   }
   
   .navbar-right .user-icon img {
-    width: 40px;
-    height: 40px;
+    width: 100%;
+    height: 100%;
     border-radius: 50%;
   }
   

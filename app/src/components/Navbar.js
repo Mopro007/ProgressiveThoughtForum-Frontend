@@ -12,6 +12,7 @@ const Navbar = ({ onSearch, searchTerm }) => {
   return (
     <nav className="navbar">
       <div className="navbar-left">
+        <h1>Progressive Thought Forum</h1>
         <Link to="about-us" smooth={true} duration={500} className="navbar-link">About Us</Link>
         <Link to="articles" smooth={true} duration={500} className="navbar-link">Latest Articles</Link>
         <Link to="footer" smooth={true} duration={500} className="navbar-link">Contact Us</Link>
@@ -27,7 +28,7 @@ const Navbar = ({ onSearch, searchTerm }) => {
       </div>
       <div className="navbar-right">
         <div className="user-icon">
-          <img src="assets/user-icon.png" alt="User Icon" />
+          <img src="assets/user-icon.png"/>
         </div>
       </div>
     </nav>

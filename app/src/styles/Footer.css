@@ -1,6 +1,6 @@
 /* Footer.css */
 .footer {
-    background-color: #222;
+    background-color: darkred;
     color: white;
     padding: 20px;
     text-align: center;
@@ -25,12 +25,12 @@
   
   .social-media a {
     margin: 0 10px;
-    color: white;
+    color: lightgray;
     font-size: 1.5rem;
     transition: color 0.3s ease;
   }
   
   .social-media a:hover {
-    color: red;
+    color: white;
   }
   

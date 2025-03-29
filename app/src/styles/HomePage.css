@@ -1,49 +1,52 @@
-/* Homepage.css */
 .homepage {
   font-family: Arial, sans-serif;
+  background-color: black;
+  color: white;
 }
 
 .about-us, .articles, .footer {
   padding: 60px 20px;
 }
 
-.carousel-container {
+.articles-list {
   display: flex;
-  gap: 20px;
+  flex-wrap: wrap;
+  gap: 20px; /* Space between items */
+  justify-content: flex-start;
+  align-items: stretch; /* Make items stretch to same height in a row */
 }
 
-.articles-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 20px;
-}
 
 .show-more-btn {
   margin-top: 20px;
   padding: 10px 20px;
-  background-color: #007bff;
-  color: white;
+  background-color: white;
+  color: black;
   border: none;
   cursor: pointer;
 }
 
 .show-more-btn:hover {
-  background-color: #0056b3;
-}
-
-.footer {
-  background-color: #333;
+  background-color: darkred;
   color: white;
-  text-align: center;
-  padding: 20px;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-in-out;
 }
 
-.footer .social-media-links a {
-  margin: 0 10px;
-  color: white;
-  text-decoration: none;
+@media (max-width: 1200px) {
+  .articles-list {
+    column-count: 3;
+  }
 }
 
-.footer .social-media-links a:hover {
-  text-decoration: underline;
+@media (max-width: 800px) {
+  .articles-list {
+    column-count: 2;
+  }
+}
+
+@media (max-width: 500px) {
+  .articles-list {
+    column-count: 1;
+  }
 }
