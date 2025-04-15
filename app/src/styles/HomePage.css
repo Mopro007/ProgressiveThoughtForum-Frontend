@@ -2,10 +2,32 @@
   font-family: Arial, sans-serif;
   background-color: black;
   color: white;
+  width: 100vw;
 }
 
 .about-us, .articles, .footer {
   padding: 60px 20px;
+}
+
+.articles{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px; /* Space between items */
+}
+
+.articles-header{
+  display: flex;
+  justify-content: flex-start;
+  gap: 20px; /* Space between items */
+  align-items: center;
+  width: 100%;
+}
+
+.search-input {
+  width: 30%;
 }
 
 .articles-list {

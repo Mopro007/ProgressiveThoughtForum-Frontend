@@ -3,7 +3,6 @@
     height: fit-content; /* 25% of viewport height */
     background-color: white;
     color: black;
-    box-shadow: -5px 5px darkred; /* Red shadow */
     border: none; /* Sharp edges */
     display: flex;
     flex-direction: column;
@@ -17,19 +16,19 @@
 
   /* Double size */
   .article-card.double {
-    width: 40vw;
+    width: 25vw;
     height: fit-content;
   }
 
   /* Triple size */
   .article-card.triple {
-    width: 60vw;
+    width: 30vw;
     height: fit-content;
   }
   
   /* Quadruple size */
   .article-card.quad {
-    width: 80vw;
+    width: 50vw;
     height: fit-content;
   }
 

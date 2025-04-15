@@ -5,14 +5,19 @@ import '../styles/Carousel.css';
 const Carousel = ({ articles }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   
-  // Change to the next article every 5 seconds
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % articles.length);
-    }, 5000); // 5000 ms = 5 seconds
+    if (articles.length > 0) {
+      const interval = setInterval(() => {
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % articles.length);
+      }, 5000);
 
-    return () => clearInterval(interval); // Clean up the interval on component unmount
+      return () => clearInterval(interval);
+    }
   }, [articles]);
+
+  if (articles.length === 0) {
+    return null; // or return a placeholder
+  }
 
   return (
     <div className="carousel-container">
