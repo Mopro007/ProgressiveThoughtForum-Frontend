@@ -3,7 +3,7 @@
     justify-content: space-between;
     align-items: center;
     width: 100%vw;
-    height: 80px;
+    height: 15vh;
     padding: 0px 20px;
     background-color: darkred;
     color: white;
@@ -64,9 +64,8 @@
     cursor: pointer;
   }
   
-  .navbar-right .user-icon img {
-    width: 100%;
-    height: 100%;
+  .navbar-right .user-image {
+    width: 50%;
     border-radius: 50%;
   }
   

@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { Link } from 'react-scroll'; // For smooth scrolling
 import '../styles/Navbar.css';
+import account from '../assets/account_icon.png';
 
-const Navbar = ({ onSearch }) => {
+const Navbar = ({ accountWindowHandle }) => {
 
   return (
     <nav className="navbar">
@@ -14,7 +15,7 @@ const Navbar = ({ onSearch }) => {
       </div>
       <div className="navbar-right">
         <div className="user-icon">
-          <img src="assets/user-icon.png"/>
+            <img src={account} onClick={() => accountWindowHandle()} className="user-image" />
         </div>
       </div>
     </nav>

@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from '../components/Navbar';
+import Accountwidow from '../components/Accountwindow';
 import Carousel from '../components/Carousel';
 import ArticleCard from '../components/ArticleCard';
 import Footer from '../components/Footer';
+import PuplishWindow from '../components/puplishWindow';
+import axiosInstance_users from '../axiosInstance_users';
+import axiosInstance_articles from '../axiosInstance_articles';
 import '../styles/HomePage.css';
 
 const HomePage = () => {
@@ -23,9 +27,104 @@ const HomePage = () => {
     { id: 14, title: 'Article 14', brief: 'This is a brief of article 14', category: 'business', imageUrl: 'assets/article14.jpg', authors: ['Author 19'] },
   ]);
 
+  const [userData, setUserData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [accountWindowOpen, setAccountWindowOpen] = useState(false);
   const [filteredArticles, setFilteredArticles] = useState(articles.slice(0, 10));
   const [searchTerm, setSearchTerm] = useState('');
   const [visibleCount, setVisibleCount] = useState(10);
+  const [puplishWindowVisible, setPuplishWindowVisible] = useState(false);
+
+  //fetch user data from the local storage, if available
+  useEffect(() => {
+    const userData = localStorage.getItem('userData');
+    if (userData) {
+      const parsedData = JSON.parse(userData);
+      setUserData(parsedData);
+    }
+    setLoading(false);
+  }, []);
+
+  //fetch articles from the server
+  useEffect(() => {
+    const fetchArticles = async () => {
+      try {
+        const response = await axiosInstance_articles.post('/article/getArticles');
+        if (response.status === 200) {
+          setArticles(response.data);
+          setFilteredArticles(response.data.slice(0, visibleCount));
+          setLoading(false);
+        } else {
+          console.error('Error fetching articles:', response.statusText);
+          setLoading(false);
+        }
+      } catch (error) {
+        console.error('Error fetching articles:', error);
+        setLoading(false);
+      }
+    };
+    fetchArticles();
+  }, []);
+
+//signIn function
+const signIn = async (e) => {
+  e.preventDefault();
+  const formData = new FormData(e.target);
+  const email = formData.get('email');
+  const password = formData.get('password');
+  
+  const newUserData = {
+    email: email,
+    password: password,
+  };
+  const response = await axiosInstance_users.post('/user/login', newUserData)
+  if (response.status == 200) {
+    console.log('User logged in successfully:', response.data);
+    setUserData(response.data);
+    localStorage.setItem('userData', JSON.stringify(response.data));
+    setAccountWindowOpen(false);
+  } else {
+    console.error('Error logging in:', response.data);
+    alert('Invalid email or password');
+  }
+};
+
+// signUp function
+const signUp = async (e) => {
+  e.preventDefault();
+  const formData = new FormData(e.target);
+  const name = formData.get('name');
+  const email = formData.get('email');
+  const password = formData.get('password');
+  
+  const newUserData = {
+    name: name,
+    email: email,
+    password: password,
+  };
+  const response = await axiosInstance_users.post('/user/signup', newUserData)
+  if (response.status == 201) {
+    console.log('User signed up successfully:', response.data);
+    setUserData(response.data);
+    localStorage.setItem('userData', JSON.stringify(response.data));
+    setAccountWindowOpen(false);
+  } else {
+    console.error('Error signing up:', response.data);
+    alert('Error signing up. Please try again.');
+  }
+};
+
+// signOut function
+const signOut = () => {
+  setUserData(null);
+  localStorage.removeItem('userData');
+  setAccountWindowOpen(false);
+};
+
+  // Handle account window open/close
+  const accountWindowHandle = () => {
+    setAccountWindowOpen(!accountWindowOpen);
+  };
 
   // Handle the search
   const handleSearch = (e) => {
@@ -50,12 +149,21 @@ const HomePage = () => {
     });
   };
 
+  //close the publish window
+  const onClose = () => {
+    setPuplishWindowVisible(false);
+  };
+
   // Get first 5 articles for carousel
   const carouselArticles = articles.slice(0, 5);
 
   return (
     <div className="homepage">
-      <Navbar onSearch={handleSearch} searchTerm={searchTerm} />
+      <Navbar onSearch={handleSearch} accountWindowHandle={accountWindowHandle} searchTerm={searchTerm} />
+      {accountWindowOpen && (
+        <Accountwidow userData={userData} signOut={signOut} signIn={signIn} signUp={signUp} setPuplishWindowVisible={setPuplishWindowVisible}/>
+      )}
+      {puplishWindowVisible && (<PuplishWindow onClose={onClose} />)}
 
       <Carousel articles={carouselArticles} />
 

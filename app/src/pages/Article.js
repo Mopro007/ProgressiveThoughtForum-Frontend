@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
+import axiosInstance_articles from '../axiosInstance_articles';
 import '../styles/Article.css';
 
 const Article = () => {
@@ -13,25 +14,16 @@ const Article = () => {
     const fetchArticle = async () => {
       try {
         setLoading(true);
-        const response = await fetch('http://localhost:5000/article', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ _id: id }),
-        });
-
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-
-        const data = await response.json();
-        if (!data) {
+        const response = await axiosInstance_articles.post('/article/getArticles', { "_id": id });
+        
+        if (!response.data) {
           throw new Error('Article not found');
         }
-        setArticle(data);
+        console.log('Fetched article:', response.data);
+        setArticle(response.data);
       } catch (err) {
-        setError(err.message);
+        setError(err.response?.data?.error || err.message || 'Failed to load article');
+        console.error('Error fetching article:', err);
       } finally {
         setLoading(false);
       }
@@ -40,51 +32,124 @@ const Article = () => {
     fetchArticle();
   }, [id]);
 
+  // Cloudinary image optimization
+  const getOptimizedBannerUrl = (url) => {
+    if (!url) return '';
+    if (url.includes('res.cloudinary.com')) {
+      return url.replace('/upload/', '/upload/w_1200,h_600,c_fill,q_auto,f_auto/');
+    }
+    return url;
+  };
+
   if (loading) {
-    return <div className="loading-message">Loading article...</div>;
+    return (
+      <div className="article-loading">
+        <div className="loading-spinner"></div>
+        <p>Loading article...</p>
+      </div>
+    );
   }
 
   if (error) {
-    return <h2 className="error-message">{error}</h2>;
+    return (
+      <div className="article-error">
+        <h2>Error loading article</h2>
+        <p>{error}</p>
+        <button onClick={() => navigate('/')} className="back-button">
+          Return to Homepage
+        </button>
+      </div>
+    );
   }
 
   if (!article) {
-    return <h2 className="error-message">Article Not Found</h2>;
+    return (
+      <div className="article-not-found">
+        <h2>Article Not Found</h2>
+        <button onClick={() => navigate('/')} className="back-button">
+          Return to Homepage
+        </button>
+      </div>
+    );
   }
 
   return (
     <div className="article-page">
-      {/* Article Banner with Back Button */}
+      {/* Article Banner */}
       <div
         className="article-banner"
         style={{ 
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), url(${article.banner})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center'
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                          url(${getOptimizedBannerUrl(article.banner || article.imageUrl)})`
         }}
       >
-        <button 
-          className="back-to-home"
-          onClick={() => navigate('/')}
-        >
-          ← Back to Homepage
-        </button>
+        <div className="banner-content">
+          <button 
+            className="back-to-home"
+            onClick={() => navigate('/')}
+          >
+            ← Back to Homepage
+          </button>
+          <h1 className="banner-title">{article.title}</h1>
+          <div className="banner-meta">
+            <span className="publish-date">
+              {new Date(article.publication_date || article.publishDate).toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+              })}
+            </span>
+            {article.last_update && (
+              <span className="update-date">
+                (Updated: {new Date(article.last_update).toLocaleDateString()})
+              </span>
+            )}
+          </div>
+        </div>
       </div>
 
       {/* Article Content */}
-      <div className="article-content">
-        <h2 className="article-title">{article.title}</h2>
-        <h4 className="article-date">
-          Published on: {new Date(article.publishDate).toLocaleDateString()}
-        </h4>
-        <div className="article-body">
-          {article.content.split('\n').map((paragraph, index) => (
-            <p key={index}>{paragraph}</p>
-          ))}
+      <div className="article-container">
+        <div className="article-content">
+          <div className="article-body">
+            {article.content}
+          </div>
+
+          <div className="article-footer">
+            <div className="article-authors">
+              <h3>Authors</h3>
+              <p>
+                {Array.isArray(article.authors) 
+                  ? article.authors.join(', ') 
+                  : (article.authors || 'Unknown author')}
+              </p>
+            </div>
+
+            {article.categories && (
+              <div className="article-categories">
+                <h3>Categories</h3>
+                <p>
+                  {Array.isArray(article.categories)
+                    ? article.categories.join(', ')
+                    : article.categories}
+                </p>
+              </div>
+            )}
+
+            {article.tags && article.tags.length > 0 && (
+              <div className="article-tags">
+                <h3>Tags</h3>
+                <div className="tags-container">
+                  {Array.isArray(article.tags)
+                    ? article.tags.map((tag, index) => (
+                        <span key={index} className="tag">{tag}</span>
+                      ))
+                    : <span className="tag">{article.tags}</span>}
+                </div>
+              </div>
+            )}
+          </div>
         </div>
-        <h4 className="article-authors">
-          By: {Array.isArray(article.authors) ? article.authors.join(', ') : article.authors}
-        </h4>
       </div>
     </div>
   );
