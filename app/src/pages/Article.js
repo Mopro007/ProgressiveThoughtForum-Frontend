@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import axiosInstance_articles from '../axiosInstance_articles';
+import EditArticle from '../components/EditArticle';
+import DeleteArticle from '../components/DeleteArticle';
 import '../styles/Article.css';
 
 const Article = () => {
@@ -9,6 +11,14 @@ const Article = () => {
   const [article, setArticle] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [editWindowOpen, setEditWindowOpen] = useState(false);
+  const [deleteWindowOpen, setDeleteWindowOpen] = useState(false);
+  //get the user data from local storage and store it in a state variable
+  const [user, setUser] = useState(() => {
+    const userData = localStorage.getItem('userData');
+    return userData ? JSON.parse(userData) : null;
+  }
+  );
 
   useEffect(() => {
     const fetchArticle = async () => {
@@ -104,6 +114,16 @@ const Article = () => {
                 (Updated: {new Date(article.last_update).toLocaleDateString()})
               </span>
             )}
+            {user.role === "admin" && (
+              <div>
+                <button className="edit-button" onClick={() => setEditWindowOpen(true)}>
+                  Edit Article
+                </button>
+                <button className="delete-button" onClick={() => setDeleteWindowOpen(true)}>
+                  Delete Article
+                </button>
+              </div>
+            )}
           </div>
         </div>
       </div>
@@ -151,6 +171,24 @@ const Article = () => {
           </div>
         </div>
       </div>
+      {/* Edit and Delete Windows (Modals) */}
+      {editWindowOpen && (
+        <EditArticle
+          article={article}
+          onClose={() => setEditWindowOpen(false)}
+          onUpdate={() => {setEditWindowOpen(false);}}
+        />
+      )}
+      {deleteWindowOpen && (
+        <DeleteArticle
+          articleId={article._id}
+          onClose={() => setDeleteWindowOpen(false)}
+          onDelete={() => {
+            setDeleteWindowOpen(false);
+            navigate('/');
+          }}
+        />
+      )}
     </div>
   );
 };
