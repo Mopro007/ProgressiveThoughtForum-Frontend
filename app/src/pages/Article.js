@@ -94,12 +94,6 @@ const Article = () => {
         }}
       >
         <div className="banner-content">
-          <button 
-            className="back-to-home"
-            onClick={() => navigate('/')}
-          >
-            ← Back to Homepage
-          </button>
           <h1 className="banner-title">{article.title}</h1>
           <div className="banner-meta">
             <span className="publish-date">
@@ -115,11 +109,11 @@ const Article = () => {
               </span>
             )}
             {user.role === "admin" && (
-              <div>
-                <button className="edit-button" onClick={() => setEditWindowOpen(true)}>
+              <div className='admin-actions'>
+                <button className="editButton" onClick={() => setEditWindowOpen(true)}>
                   Edit Article
                 </button>
-                <button className="delete-button" onClick={() => setDeleteWindowOpen(true)}>
+                <button className="deleteButton" onClick={() => setDeleteWindowOpen(true)}>
                   Delete Article
                 </button>
               </div>

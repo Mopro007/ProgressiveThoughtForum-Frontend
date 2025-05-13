@@ -1,6 +1,6 @@
 /* Footer.css */
 .footer {
-    background-color: darkred;
+    background: linear-gradient(0.25turn, darkred, rgb(207, 0, 0));
     color: white;
     padding: 20px;
     text-align: center;

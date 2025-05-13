@@ -41,6 +41,8 @@ const ArticleCard = ({ article, size = 'normal' }) => {
         style={{ 
           backgroundImage: `url(${getOptimizedImageUrl(imageUrl)})`,
           backgroundSize: 'cover',
+          backgroundRepeat: 'no-repeat',
+          backgroundClip: 'crop',
           backgroundPosition: 'center'
         }}
       >

@@ -63,12 +63,6 @@ const PublishWindow = ({ onClose }) => {
       imageFormData.append('file', imageFile);
       imageFormData.append('upload_preset', 'progressive thought forum');
       imageFormData.append('cloud_name', 'duvs84hsw');
-
-      //console log to verify the file is being appended correctly
-      console.log('FormData entries:');
-      for (let [key, value] of imageFormData.entries()) {
-        console.log(key, value);
-      }
       
       const imageResponse = await axios.post('https://api.cloudinary.com/v1_1/duvs84hsw/image/upload', imageFormData, {
         headers: {
@@ -205,18 +199,6 @@ const PublishWindow = ({ onClose }) => {
             >
               + Add Author
             </button>
-          </div>
-
-          {/* Summary */}
-          <div className="form-group">
-            <label>Summary</label>
-            <textarea
-              name="summary"
-              value={formData.summary}
-              onChange={handleChange}
-              rows="5"
-              required
-            />
           </div>
 
           {/* Categories */}

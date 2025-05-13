@@ -51,6 +51,7 @@ const HomePage = () => {
       try {
         const response = await axiosInstance_articles.post('/article/getArticles');
         if (response.status === 200) {
+          console.log('Articles fetched successfully:', response.data);
           setArticles(response.data);
           setFilteredArticles(response.data.slice(0, visibleCount));
           setLoading(false);

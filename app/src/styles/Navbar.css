@@ -5,7 +5,7 @@
     width: 100%vw;
     height: 15vh;
     padding: 0px 20px;
-    background-color: darkred;
+    background: linear-gradient(0.25turn, darkred, rgb(207, 0, 0));
     color: white;
   }
 
