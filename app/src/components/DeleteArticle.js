@@ -28,13 +28,13 @@ const DeleteArticle = ({ articleId, onDelete, onClose }) => {
   return (
     <div className="delete-article-modal">
       <div className="delete-article-content">
-        <h2>Delete Article</h2>
+        <h2>حذف المقالة</h2>
         {error && <p className="error-message">{error}</p>}
-        <p>Are you sure you want to delete this article?</p>
+        <p>هل انت متأكد من حذف هذه المقالة بشكل دائم؟</p>
         <button onClick={handleDelete} disabled={loading}>
           {loading ? 'Deleting...' : 'Delete'}
         </button>
-        <button onClick={handleCancel}>Cancel</button>
+        <button onClick={handleCancel}>الغاء</button>
       </div>
     </div>
   );

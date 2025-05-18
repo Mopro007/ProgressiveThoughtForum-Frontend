@@ -11,28 +11,28 @@ const AccountWindow = ({ userData, signOut, signIn, signUp, setPuplishWindowVisi
                 <h2>{userData.name}</h2>
                 <p>{userData.email}</p>
                 <div className="account-actions">
-                    {userData.role === 'admin' && <button className="admin-button" onClick={() => setPuplishWindowVisible(true)}>New Article</button>}
-                    <button className="signout-button" onClick={() => signOut()}>Sign Out</button>
+                    {userData.role === 'admin' && <button className="admin-button" onClick={() => setPuplishWindowVisible(true)}>نشر مقالة</button>}
+                    <button className="signout-button" onClick={() => signOut()}>تسجيل الخروج</button>
                 </div>
             </div>
         ) : (
             <div className="account-window">
-                <p>Please Sign In or Sign Up to view your account details.</p>
+                <p>الرجاء انشاء حساب او تسجيل الدخول لعرض معلومات المستخدم</p>
                 
                 {isSignIn ? (
                     <form onSubmit={(e) => { e.preventDefault(); signIn(e); }}>
                         <input type="email" placeholder="Email" required name='email'/>
                         <input type="password" placeholder="Password" required name='password'/>
-                        <button type="submit">Sign In</button>
-                        <p className="toggle-auth" onClick={() => setIsSignIn(false)}>or Sign Up</p>
+                        <button type="submit">تسجيل الدخول</button>
+                        <p className="toggle-auth" onClick={() => setIsSignIn(false)}>او قم بأنشاء حساب</p>
                     </form>  
                 ) : (
                     <form onSubmit={(e) => { e.preventDefault(); signUp(e); }}>
                         <input type="text" placeholder="Name" required name='name'/>
                         <input type="email" placeholder="Email" required name='email'/>
                         <input type="password" placeholder="Password" required name='password'/>
-                        <button type="submit">Sign Up</button>
-                        <p className="toggle-auth" onClick={() => setIsSignIn(true)}>or Sign In</p>
+                        <button type="submit">انشاء حساب</button>
+                        <p className="toggle-auth" onClick={() => setIsSignIn(true)}>او قم بتسجيل الدخول</p>
                     </form>
                 )}
             </div>

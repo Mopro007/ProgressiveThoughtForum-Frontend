@@ -107,12 +107,12 @@ const PublishWindow = ({ onClose }) => {
     <div className="publish-window-overlay">
       <div className="publish-window">
         <button className="close-btn" onClick={onClose}>×</button>
-        <h2>Publish New Article</h2>
+        <h2>نشر مقالة جديدة</h2>
         
         <form onSubmit={handleSubmit}>
           {/* Banner Image Upload */}
           <div className="form-group">
-            <label>Banner Image</label>
+            <label>صورة الغلاف</label>
             <div className="image-upload-container">
               {previewImage ? (
                 <img src={previewImage} alt="Preview" className="image-preview" />
@@ -136,7 +136,7 @@ const PublishWindow = ({ onClose }) => {
 
           {/* Title */}
           <div className="form-group">
-            <label>Title</label>
+            <label>العنوان</label>
             <input
               type="text"
               name="title"
@@ -148,7 +148,7 @@ const PublishWindow = ({ onClose }) => {
 
           {/* Brief */}
           <div className="form-group">
-            <label>Brief</label>
+            <label>مختصر</label>
             <textarea
               name="brief"
               value={formData.brief}
@@ -160,7 +160,7 @@ const PublishWindow = ({ onClose }) => {
 
           {/* Content */}
           <div className="form-group">
-            <label>Content</label>
+            <label>المحتوى</label>
             <textarea
               name="content"
               value={formData.content}
@@ -172,7 +172,7 @@ const PublishWindow = ({ onClose }) => {
 
           {/* Authors */}
           <div className="form-group">
-            <label>Authors</label>
+            <label>الكاتبين</label>
             {formData.authors.map((author, index) => (
               <div key={index} className="list-item">
                 <input
@@ -197,13 +197,13 @@ const PublishWindow = ({ onClose }) => {
               onClick={() => addListItem('authors')}
               className="add-item-btn"
             >
-              + Add Author
+              + اضافة كاتب
             </button>
           </div>
 
           {/* Categories */}
           <div className="form-group">
-            <label>Categories</label>
+            <label>التصنيفات</label>
             {formData.categories.map((category, index) => (
               <div key={index} className="list-item">
                 <input
@@ -228,13 +228,13 @@ const PublishWindow = ({ onClose }) => {
               onClick={() => addListItem('categories')}
               className="add-item-btn"
             >
-              + Add Category
+              + اضافة تصنيف
             </button>
           </div>
 
           {/* Tags */}
           <div className="form-group">
-            <label>Tags</label>
+            <label>العلامات</label>
             {formData.tags.map((tag, index) => (
               <div key={index} className="list-item">
                 <input
@@ -258,13 +258,13 @@ const PublishWindow = ({ onClose }) => {
               onClick={() => addListItem('tags')}
               className="add-item-btn"
             >
-              + Add Tag
+              + اضافة علامة
             </button>
           </div>
 
           <div className="form-actions">
             <button type="button" onClick={onClose} className="cancel-btn">
-              Cancel
+              الغاء
             </button>
             <button type="submit" className="publish-btn" disabled={isUploading}>
               {isUploading ? 'Publishing...' : 'Publish Article'}

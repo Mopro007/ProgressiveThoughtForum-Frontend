@@ -9,9 +9,9 @@ const Navbar = ({ accountWindowHandle }) => {
     <nav className="navbar">
       <div className="navbar-left">
         <h1>Progressive Thought Forum</h1>
-        <Link to="about-us" smooth={true} duration={500} className="navbar-link">About Us</Link>
-        <Link to="articles" smooth={true} duration={500} className="navbar-link">Latest Articles</Link>
-        <Link to="footer" smooth={true} duration={500} className="navbar-link">Contact Us</Link>
+        <Link to="about-us" smooth={true} duration={500} className="navbar-link">عن المنتدى</Link>
+        <Link to="articles" smooth={true} duration={500} className="navbar-link">اخر المقالات</Link>
+        <Link to="footer" smooth={true} duration={500} className="navbar-link">تواصل معنا</Link>
       </div>
       <div className="navbar-right">
         <div className="user-icon">

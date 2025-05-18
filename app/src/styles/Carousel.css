@@ -147,3 +147,40 @@
   color: #666;
   font-size: 1.2rem;
 }
+
+@media (max-width: 1200px) {
+  .carousel-container {
+    height: 50vh;
+  }
+  .carousel-title {
+    font-size: 1.5rem;
+    margin: 20px 20px;
+  }
+  .carousel-btn{
+    font-size: 15px;
+    padding: 10px 10px;
+  }
+}
+
+@media (max-width: 800px) {
+  .carousel-container {
+    height: 40vh;
+  }
+  .carousel-title {
+    font-size: 1rem;
+    margin: 15px 20px;
+  }
+}
+
+@media (max-width: 500px) {
+  .carousel-container {
+    height: 30vh;
+  }
+  .carousel-title {
+    font-size: 0.75rem;
+    margin: 10px 20px;
+  }
+  .carousel-btn{
+    margin: 0px 0px;
+  }
+}

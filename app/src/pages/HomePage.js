@@ -169,22 +169,24 @@ const signOut = () => {
       <Carousel articles={carouselArticles} />
 
       <section id="about-us" className="about-us">
-        <h2>About Us</h2>
+        <h2>نبذة عنا</h2>
         <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vitae urna nec mi ullamcorper sagittis quis at dui. Ut eu velit sed sem volutpat maximus. Maecenas vitae velit et lacus sollicitudin porta non et turpis. Nulla facilisi. Aliquam erat volutpat. Nullam consequat porta risus, at suscipit nibh hendrerit vitae. Phasellus non purus sit amet nulla varius vulputate. Quisque tempus accumsan libero, at condimentum erat accumsan commodo. Duis pulvinar facilisis tortor et ornare. Aenean risus erat, convallis a mattis ac, aliquam in tellus. Curabitur tincidunt vitae nibh quis interdum. Vivamus vitae convallis nibh, a molestie tellus. Vivamus in arcu quis eros feugiat tincidunt.
+          نشأنا في بلدٍ أنهكته الصراعات والانقسامات، وتوارثت أجياله أنظمة سياسية واقتصادية لا تعتبر للإنسان قيمة تحتسب في إدارتها، ولا تولي للشباب أهمية كأداة أساسية للتجديد والتقدم.
 
-        Quisque porta dapibus maximus. Suspendisse malesuada, nunc nec sollicitudin gravida, quam nunc tristique ipsum, et vulputate arcu sapien ac mi. Morbi ultricies velit quis lacus venenatis varius. Cras sapien ex, tincidunt ut mi nec, sodales rutrum risus. Nullam vehicula, felis id sodales fermentum, est orci suscipit nunc, eu efficitur turpis leo lacinia quam. Suspendisse potenti. Mauris non dignissim eros. Vestibulum venenatis urna eget eros egestas, sit amet elementum turpis placerat. Nunc egestas risus a velit pretium feugiat. In gravida non lorem et viverra. Nulla efficitur ipsum sed nunc mattis consequat vel nec est. Nullam consequat ornare turpis quis pharetra. Integer ac sagittis felis.
+          لكننا نؤمن أن هذا الواقع ليس قدراً.
 
-        Morbi semper placerat dictum. Nam vel aliquam lectus. Integer auctor molestie lacus nec dignissim. Morbi rutrum ex odio, quis dapibus lectus molestie malesuada. Nunc sit amet sodales elit, quis iaculis ipsum. Phasellus ut sagittis libero, id viverra diam. Integer ultrices, lacus vel consequat hendrerit, lacus augue scelerisque erat, at tristique velit risus in ante. Duis tempor condimentum urna, eget maximus justo volutpat in. Morbi molestie diam non volutpat elementum. Nulla id risus nulla.
+          من هنا، تشكلت مجموعتنا: شباب طلاب وناشطون نحمل قناعة راسخة بأن التغيير يبدأ من الحرم الجامعي،من الشارع، ومن مساحات النقاش الحرة، ومن إعادة تعريف السياسة باعتبارها ممارسة تقوم على خدمة المصلحة العامة.
+
+          تأسست هذه المجموعة كإطار شبابي مدني ديمقراطي، علماني، لا يسعى إلى الدخول في صراع السلطة أو المشاركة الانتخابية، بل يعمل على تعبئة الطاقات الشبابية وتنظيمها، ومواجهة السرديات الطائفية والخطابات الإقصائية، والسعي إلى إنتاج بدائل تنحاز فعلاً إلى مصالح الناس واحتياجاتهم، خارج منطق المحاصصة والولاءات الضيقة.
         </p>
       </section>
 
       <section id="articles" className="articles">
         <div className="articles-header">
-          <h2>Our Articles</h2>
+          <h2>مقالاتنا</h2>
           <input
             type="text"
-            placeholder="Search articles"
+            placeholder="ابحث عن مقالات..."
             value={searchTerm}
             onChange={handleSearch}
             className="search-input"
@@ -192,7 +194,7 @@ const signOut = () => {
         </div>
         <div className="articles-list">
           {filteredArticles.length === 0 ? (
-            <p>No articles found matching your search.</p>
+            <p>لم يتم العثور على مقالة تطابق بحثك</p>
           ) : (
             filteredArticles.map((article) => {
               const sizes = ['normal', 'double', 'triple', 'quad'];
@@ -210,7 +212,7 @@ const signOut = () => {
         </div>
         {visibleCount < articles.length && (
           <button className="show-more-btn" onClick={showMoreArticles}>
-            Show More Articles
+            اضهر المزيد
           </button>
         )}
       </section>

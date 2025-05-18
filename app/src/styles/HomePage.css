@@ -59,16 +59,52 @@
   .articles-list {
     column-count: 3;
   }
+  .search-input {
+  width: 50%;
+  }
+  h1{
+    font-size: 1.5rem;
+  }
+  h2{
+    font-size: 1.5rem;
+  }
+  a{
+    font-size: 1rem;
+  }
 }
 
 @media (max-width: 800px) {
   .articles-list {
     column-count: 2;
   }
+  .search-input {
+  width: 70%;
+  }
+  h1{
+    font-size: 1rem;
+  }
+  h2{
+    font-size: 1rem;
+  }
+  a{
+    font-size: 0.75rem;
+  }
 }
 
 @media (max-width: 500px) {
   .articles-list {
     column-count: 1;
+  }
+  .search-input {
+  width: 90%;
+  }
+  h1{
+    font-size: 0.75rem;
+  }
+  h2{
+    font-size: 0.75rem;
+  }
+  a{
+    font-size: 0.5rem;
   }
 }

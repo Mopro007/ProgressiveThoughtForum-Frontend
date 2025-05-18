@@ -130,7 +130,7 @@ const EditArticle = ({ article, onUpdate, onClose }) => {
 
           {/* Title */}
           <div className="form-group">
-            <label>Title</label>
+            <label>العنوان</label>
             <input
               type="text"
               name="title"
@@ -142,7 +142,7 @@ const EditArticle = ({ article, onUpdate, onClose }) => {
 
           {/* Brief */}
           <div className="form-group">
-            <label>Brief</label>
+            <label>مختصر</label>
             <textarea
               name="brief"
               value={formData.brief}
@@ -154,7 +154,7 @@ const EditArticle = ({ article, onUpdate, onClose }) => {
 
           {/* Content */}
           <div className="form-group">
-            <label>Content</label>
+            <label>محتو المقالة</label>
             <textarea
               name="content"
               value={formData.content}
@@ -166,7 +166,7 @@ const EditArticle = ({ article, onUpdate, onClose }) => {
 
           {/* Authors */}
           <div className="form-group">
-            <label>Authors</label>
+            <label>الكاتبين</label>
             {formData.authors.map((author, index) => (
               <div key={index} className="list-item">
                 <input
@@ -191,13 +191,13 @@ const EditArticle = ({ article, onUpdate, onClose }) => {
               onClick={() => addListItem('authors')}
               className="add-item-btn"
             >
-              + Add Author
+              + اضافة كاتب
             </button>
           </div>
 
           {/* Categories */}
           <div className="form-group">
-            <label>Categories</label>
+            <label>التصنيفات</label>
             {formData.categories.map((category, index) => (
               <div key={index} className="list-item">
                 <input
@@ -222,13 +222,13 @@ const EditArticle = ({ article, onUpdate, onClose }) => {
               onClick={() => addListItem('categories')}
               className="add-item-btn"
             >
-              + Add Category
+              + اضافة تصنيف
             </button>
           </div>
 
           {/* Tags */}
           <div className="form-group">
-            <label>Tags</label>
+            <label>العلامات</label>
             {formData.tags.map((tag, index) => (
               <div key={index} className="list-item">
                 <input
@@ -252,13 +252,13 @@ const EditArticle = ({ article, onUpdate, onClose }) => {
               onClick={() => addListItem('tags')}
               className="add-item-btn"
             >
-              + Add Tag
+              + اضافة علامة
             </button>
           </div>
 
           <div className="form-actions">
             <button type="button" onClick={onClose} className="cancel-btn">
-              Cancel
+              الغاء
             </button>
             <button type="submit" className="update-btn" disabled={loading}>
               {loading ? 'Updating...' : 'Update Article'}

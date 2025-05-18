@@ -78,7 +78,7 @@ const Carousel = ({ articles }) => {
                   to={`/article/${article._id || index}`} 
                   className="carousel-read-btn"
                 >
-                  Read More
+                  اقراء المزيد
                 </Link>
               </div>
             </div>

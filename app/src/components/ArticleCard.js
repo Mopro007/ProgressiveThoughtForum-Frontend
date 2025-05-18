@@ -55,7 +55,7 @@ const ArticleCard = ({ article, size = 'normal' }) => {
           By: {Array.isArray(article.authors) ? article.authors.join(', ') : article.authors}
         </p>
         <Link to={`/article/${article._id}`} className="read-more">
-          Read More
+          اقراء المزيد
         </Link>
       </div>
     </div>

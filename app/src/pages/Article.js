@@ -111,10 +111,10 @@ const Article = () => {
             {user.role === "admin" && (
               <div className='admin-actions'>
                 <button className="editButton" onClick={() => setEditWindowOpen(true)}>
-                  Edit Article
+                  تعديل المقالة
                 </button>
                 <button className="deleteButton" onClick={() => setDeleteWindowOpen(true)}>
-                  Delete Article
+                  حذف المقالة
                 </button>
               </div>
             )}
@@ -131,7 +131,7 @@ const Article = () => {
 
           <div className="article-footer">
             <div className="article-authors">
-              <h3>Authors</h3>
+              <h3>الكاتبين</h3>
               <p>
                 {Array.isArray(article.authors) 
                   ? article.authors.join(', ') 
@@ -141,7 +141,7 @@ const Article = () => {
 
             {article.categories && (
               <div className="article-categories">
-                <h3>Categories</h3>
+                <h3>التصنيفات</h3>
                 <p>
                   {Array.isArray(article.categories)
                     ? article.categories.join(', ')
@@ -152,7 +152,7 @@ const Article = () => {
 
             {article.tags && article.tags.length > 0 && (
               <div className="article-tags">
-                <h3>Tags</h3>
+                <h3>العلامات</h3>
                 <div className="tags-container">
                   {Array.isArray(article.tags)
                     ? article.tags.map((tag, index) => (

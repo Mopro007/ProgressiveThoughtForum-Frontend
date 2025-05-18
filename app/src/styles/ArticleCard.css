@@ -94,3 +94,26 @@
   .read-more:hover {
     background-color: darkred;
   }
+
+  @media screen and (max-width: 768px) {
+    .article-card.normal{
+      width: 90vw; /* Full width on smaller screens */
+      height: 40vh; /* Adjust height for smaller screens */
+    }
+  
+    .article-card.double {
+      width: 90vw; /* Full width on smaller screens */
+      height: 40vh; /* Adjust height for smaller screens */
+    }
+  
+    .article-card.triple {
+      width: 90vw; /* Full width on smaller screens */
+      height: 40vh; /* Adjust height for smaller screens */
+    }
+  
+    .article-card.quad {
+      width: 90vw; /* Full width on smaller screens */
+      height: 40vh; /* Adjust height for smaller screens */
+    }
+    
+  }

@@ -7,7 +7,7 @@ const Footer = () => {
     <footer className="footer" id="footer">
       <div className="footer-content">
         <p className="about-us">
-          We provide insightful articles on various topics to keep you informed and engaged. Stay connected with us!
+          يمكنكم متابعتنا و التواصل معنا عبر وسائل التواصل الاجتماعي أو عبر البريد الإلكتروني.
         </p>
         <p className="copyright">© {new Date().getFullYear()} All Rights Reserved.</p>
         <div className="social-media">
