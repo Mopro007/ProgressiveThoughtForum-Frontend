@@ -127,6 +127,7 @@ const PublishWindow = ({ onClose }) => {
                 accept="image/*"
                 onChange={handleImageUpload}
                 disabled={isUploading}
+                placeholder='Select an image'
               />
               <label htmlFor="bannerImage" className="upload-btn">
                 {previewImage ? 'Change Image' : 'Select Image'}

@@ -1,119 +1,163 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400;500;700&display=swap');
+
 .article-card {
-    width: 20vw; /* 20% of viewport width */
-    height: 50%; /* 25% of viewport height */
-    background-color: white;
-    color: black;
-    border: none; /* Sharp edges */
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-  }
+  min-width: 300px;
+  height: 75vh;
+  background-color: #fff;
+  color: #000;
+  border-radius: 0px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  font-family: 'Noto Kufi Arabic', sans-serif;
+  text-align: right;
+  direction: rtl;
+}
 
-  /* Default size */
-  .article-card.normal {
-    width: 35vw;
-    height: 50%;
-  }
+.article-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
 
-  /* Double size */
-  .article-card.double {
-    width: 40vw;
-    height: 50%;
-  }
+.article-banner {
+  width: 100%;
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: grayscale(100%); /* Ensure B&W */
+}
 
-  /* Triple size */
-  .article-card.triple {
-    width: 45vw;
-    height: 50%;
-  }
-  
-  /* Quadruple size */
-  .article-card.quad {
-    width: 50vw;
-    height: 50%;
-  }
+.content {
+  padding: 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
 
-  .article-card:hover {
-    box-shadow: -5px 5px darkred, -10px 10px darkred; /* Darker shadow on hover */
-    transform: scale(1.02); /* Slightly larger on hover */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
-  }
-  
+.title {
+  font-weight: 700;
+  font-size: 1.2rem;
+  margin: 0;
+  color: #000;
+}
+
+.brief {
+  font-size: 0.95rem;
+  color: #444;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.authors {
+  font-size: 0.85rem;
+  color: #666;
+  margin: 0;
+}
+
+.read-more {
+  align-self: flex-start;
+  text-decoration: none;
+  color: #fff;
+  background-color: #000;
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border-radius: 0px;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+}
+
+.read-more:hover {
+  background-color: #333;
+  transform: translateX(-5px);
+}
+
+/* Size Variations */
+.article-card.normal {
+  width: 30vw;
+}
+
+.article-card.double {
+  width: 30vw;
+}
+
+.article-card.triple {
+  width: 40vw;
+}
+
+.article-card.quad {
+  width: 50vw;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
   .article-banner {
-    width: 100%;
-    height: 20%;
-    background-size: cover;
-    background-position: center;
-    position: relative;
+    height: 180px;
   }
   
-  .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(139, 0, 0, 0.3); /* Dark red overlay with 30% opacity */
+  .article-card.double,
+  .article-card.triple,
+  .article-card.quad {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 768px) {
+  .article-banner {
+    height: 160px;
+  }
+  
+  .article-card,
+  .article-card.double,
+  .article-card.triple,
+  .article-card.quad {
+    grid-column: span 1;
   }
   
   .content {
-    padding: 10px;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    padding: 15px;
   }
   
   .title {
-    font-weight: bold;
-    margin-bottom: 5px;
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .article-banner {
+    height: 140px;
+  }
+  
+  .title {
+    font-size: 1rem;
   }
   
   .brief {
     font-size: 0.9rem;
-    color: black;
-    margin-bottom: 10px;
-  }
-  
-  .authors {
-    font-size: 0.8rem;
-    color: #777;
   }
   
   .read-more {
-    align-self: flex-start;
-    text-decoration: none;
-    color: white;
-    background-color: black;
-    padding: 5px 10px;
-    font-size: 0.9rem;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
+    padding: 6px 12px;
+    font-size: 0.85rem;
   }
-  
-  .read-more:hover {
-    background-color: darkred;
-  }
+}
 
-  @media screen and (max-width: 768px) {
-    .article-card.normal{
-      width: 90vw; /* Full width on smaller screens */
-      height: 40vh; /* Adjust height for smaller screens */
-    }
-  
-    .article-card.double {
-      width: 90vw; /* Full width on smaller screens */
-      height: 40vh; /* Adjust height for smaller screens */
-    }
-  
-    .article-card.triple {
-      width: 90vw; /* Full width on smaller screens */
-      height: 40vh; /* Adjust height for smaller screens */
-    }
-  
-    .article-card.quad {
-      width: 90vw; /* Full width on smaller screens */
-      height: 40vh; /* Adjust height for smaller screens */
-    }
-    
+/* Animation */
+@keyframes cardEntrance {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
   }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.article-card {
+  animation: cardEntrance 0.5s ease-out both;
+}

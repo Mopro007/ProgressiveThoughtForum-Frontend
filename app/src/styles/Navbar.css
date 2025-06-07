@@ -1,71 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400;500;700&display=swap');
+
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%vw;
-    height: 15vh;
-    padding: 0px 20px;
-    background: linear-gradient(0.25turn, darkred, rgb(207, 0, 0));
-    color: white;
-  }
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+  padding: 0 50px;
+  background-color: #dcdcdc;
+  color: black;
+  font-family: 'Noto Kufi Arabic', sans-serif;
+  position: relative;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
 
-  h1 {
-    font-size: 24px;
-    margin: 0;
-  }
-  
-  .navbar-left {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 15px;
-  }
-  
-  .navbar-link {
-    color: white;
-    text-decoration: none;
-    cursor: pointer;
-  }
-  
-  .navbar-link:hover {
-    text-decoration: underline;
-  }
-  
-  .navbar-center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 30%;
-    height: 100%;
-    gap: 15px;
-  }
-  
-  .search-input {
-    padding: 10px;
-    border-radius: 0px;
-    border: none;
-    width: 100%;
-  }
+.logo {
+  height: 150px;
+  width: auto;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
 
-  .search-input:focus {
-    outline: none;
-  }
+.logo:hover {
+  transform: scale(1.05);
+}
 
-  .navbar-right {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 10%;
-    height: 100%;
-    gap: 15px;
-  }
-  
-  .navbar-right .user-icon {
-    cursor: pointer;
-  }
-  
-  .navbar-right .user-image {
-    width: 50%;
-    border-radius: 50%;
-  }
-  
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.menu-icon {
+  display: block;
+  font-size: 24px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.menu-icon:hover {
+  transform: scale(1.1);
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 80px;
+  left: 0;
+  width: 96%;
+  background-color: #dcdcdc;
+  padding: 20px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  border: none;
+  z-index: 100;
+  transform: translateY(-100%);
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.links.active {
+  z-index: 1000;
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.links .navbar-link {
+  border: none;
+  font-family: 'Noto Kufi Arabic', sans-serif;
+  padding: 12px 20px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.navbar-link:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}

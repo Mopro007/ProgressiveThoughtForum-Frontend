@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import '../styles/Accountwidow.css';
 
-const AccountWindow = ({ userData, signOut, signIn, signUp, setPuplishWindowVisible }) => {
+const AccountWindow = ({ accountWindowHandle, userData, signOut, signIn, signUp, setPuplishWindowVisible }) => {
     const [isSignIn, setIsSignIn] = useState(true);
     console.log(userData);
 
@@ -13,6 +13,7 @@ const AccountWindow = ({ userData, signOut, signIn, signUp, setPuplishWindowVisi
                 <div className="account-actions">
                     {userData.role === 'admin' && <button className="admin-button" onClick={() => setPuplishWindowVisible(true)}>نشر مقالة</button>}
                     <button className="signout-button" onClick={() => signOut()}>تسجيل الخروج</button>
+                    <button className="signout-button" onClick={() => accountWindowHandle()}> اغلاق</button>
                 </div>
             </div>
         ) : (

@@ -56,12 +56,11 @@
     display: block;
     margin-bottom: 8px;
     font-weight: 600;
-    color: #34495e;
   }
   
   .form-group input[type="text"],
   .form-group textarea {
-    width: 100%;
+    width: 70%;
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 4px;

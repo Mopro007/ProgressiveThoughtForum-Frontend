@@ -1,36 +1,149 @@
-/* Footer.css */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400;500;700&display=swap');
+
 .footer {
-    background: linear-gradient(0.25turn, darkred, rgb(207, 0, 0));
-    color: white;
-    padding: 20px;
+  background-color: #dcdcdc;
+  color: #000;
+  padding: 40px 20px;
+  text-align: center;
+  font-family: 'Noto Kufi Arabic', sans-serif;
+  direction: rtl; /* Right-to-left for Arabic */
+  border-top: 1px solid #bbb;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  text-align: right;
+}
+
+.footer-section h3 {
+  font-size: 1.3rem;
+  margin-bottom: 20px;
+  color: #000;
+  font-weight: 700;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.footer-section h3::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 50px;
+  height: 2px;
+  background-color: #000;
+}
+
+.footer-section p {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: #333;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 12px;
+}
+
+.footer-links a {
+  color: #333;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.footer-links a:hover {
+  color: #000;
+  transform: translateX(-5px);
+}
+
+.social-media {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.social-media a {
+  color: #555;
+  font-size: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.social-media a:hover {
+  color: #000;
+  transform: translateY(-3px);
+}
+
+.copyright {
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid #bbb;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .footer {
+    padding: 30px 15px;
+  }
+  
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  
+  .footer-section {
     text-align: center;
   }
   
-  .footer-content {
-    max-width: 800px;
-    margin: 0 auto;
+  .footer-section h3::after {
+    right: 50%;
+    transform: translateX(50%);
   }
   
-  .about-us {
-    font-size: 0.9rem;
-    margin-bottom: 10px;
-    opacity: 0.8;
+  .footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+  }
+  
+  .footer-links a:hover {
+    transform: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    padding: 25px 10px;
+  }
+  
+  .social-media {
+    gap: 15px;
+  }
+  
+  .social-media a {
+    font-size: 1.3rem;
   }
   
   .copyright {
     font-size: 0.8rem;
-    opacity: 0.7;
-    margin-bottom: 15px;
   }
-  
-  .social-media a {
-    margin: 0 10px;
-    color: lightgray;
-    font-size: 1.5rem;
-    transition: color 0.3s ease;
-  }
-  
-  .social-media a:hover {
-    color: white;
-  }
-  
+}

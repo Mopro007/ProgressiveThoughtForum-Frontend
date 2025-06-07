@@ -1,90 +1,144 @@
-/* Accountwidow.css */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400;500;700&display=swap');
+
 .account-window {
-    padding: 20px;
-    background: rgb(255, 255, 255, 0.5);
-    background-blend-mode: multiply;
-    backdrop-filter: blur(10px);
-    border-radius: none;
-    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.8);
-    max-width: 400px;
-    margin: 0 auto;
-    position: absolute;
-    top: 15vh;
-    right: 0;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    justify-content: space-between;
-    align-items: center;
-    color: black;
-    width: 20vw;
-    z-index: 1000;
-    transition: transform 0.5s ease-in-out;
+  position: fixed;
+  top: 30%;
+  right: 35%;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  width: 350px;
+  max-width: 90%;
+  z-index: 1000;
+  font-family: 'Noto Kufi Arabic', sans-serif;
+  text-align: center;
+  overflow: hidden;
+  transform-origin: top right;
+  animation: slideIn 0.3s ease-out forwards;
+  border: 1px solid #e0e0e0;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.account-window h2 {
+  color: #000;
+  font-size: 1.3rem;
+  margin: 20px 20px 10px;
+  font-weight: 700;
+}
+
+.account-window p {
+  color: #555;
+  font-size: 0.95rem;
+  margin: 0 20px 20px;
+  line-height: 1.5;
 }
 
 .account-window form {
-    z-index: 1000;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
 .account-window input {
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-family: 'Noto Kufi Arabic', sans-serif;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+.account-window input:focus {
+  outline: none;
+  border-color: #999;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
 }
 
 .account-window button {
-    padding: 10px;
-    background-color: darkred;
-    color: white;
-    border: none;
-    border-radius: none;
-    cursor: pointer;
-    transition-duration: 0.3s;
+  padding: 12px;
+  background-color: #000;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-family: 'Noto Kufi Arabic', sans-serif;
+  font-weight: 500;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 5px;
 }
 
 .account-window button:hover {
-    background-color: black;
-    color: white;
+  background-color: #333;
+  transform: translateY(-2px);
 }
 
 .toggle-auth {
-    color: darkred;
-    text-align: center;
-    cursor: pointer;
-    margin-top: 10px;
+  color: #555;
+  text-align: center;
+  cursor: pointer;
+  font-size: 0.9rem;
+  margin: 10px 0 0;
+  transition: color 0.3s ease;
 }
 
 .toggle-auth:hover {
-    text-decoration: underline;
+  color: #000;
+  text-decoration: underline;
 }
 
 .account-actions {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    gap: 10px;
-    margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 0 20px 20px;
 }
 
-@media screen and (max-width: 1000px) {
-    .account-window {
-        width: 80vw;
-    }
+.admin-button, .signout-button {
+  width: 100%;
 }
 
-@media screen and (max-width: 650px) {
-    .account-window {
-        width: 50vw;
-    }
+.admin-button {
+  background-color: #000 !important;
 }
 
-@media screen and (max-width: 400px) {
-    .account-window {
-        width: 45vw;
-        height: 20vh;
-    }
+.signout-button {
+  background-color: #dcdcdc !important;
+  color: #000 !important;
+}
+
+.signout-button:hover {
+  background-color: #bbb !important;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .account-window {
+    right: 10px;
+    width: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .account-window {
+    width: 280px;
+    right: 10px;
+    left: 10px;
+    margin: 0 auto;
+  }
+  
+  .account-window form {
+    padding: 15px;
+  }
 }

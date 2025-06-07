@@ -160,9 +160,9 @@ const signOut = () => {
 
   return (
     <div className="homepage">
-      <Navbar onSearch={handleSearch} accountWindowHandle={accountWindowHandle} searchTerm={searchTerm} />
+      <Navbar accountWindowHandle={accountWindowHandle} />
       {accountWindowOpen && (
-        <Accountwidow userData={userData} signOut={signOut} signIn={signIn} signUp={signUp} setPuplishWindowVisible={setPuplishWindowVisible}/>
+        <Accountwidow accountWindowHandle={accountWindowHandle} userData={userData} signOut={signOut} signIn={signIn} signUp={signUp} setPuplishWindowVisible={setPuplishWindowVisible}/>
       )}
       {puplishWindowVisible && (<PuplishWindow onClose={onClose} />)}
 
