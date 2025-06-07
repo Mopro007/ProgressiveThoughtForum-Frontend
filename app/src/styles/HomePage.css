@@ -115,10 +115,6 @@
     padding: 50px 20px;
   }
   
-  .articles-list {
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  }
-  
   .about-us h2 {
     font-size: 1.8rem;
   }
@@ -136,6 +132,8 @@
   }
   
   .search-input {
+    width: 70%;
+    max-width: 400px;
     padding: 10px 15px;
   }
 }
