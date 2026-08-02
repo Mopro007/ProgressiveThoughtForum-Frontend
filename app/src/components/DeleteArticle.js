@@ -11,7 +11,9 @@ const DeleteArticle = ({ articleId, onDelete, onClose }) => {
       console.log('Deleting article with ID:', articleId);
       setLoading(true);
       const response = await axiosInstance_articles.delete('/article', {
-        "_id": articleId,
+        data: {
+          "_id": articleId,
+        }
       });
       onDelete();
     } catch (err) {
