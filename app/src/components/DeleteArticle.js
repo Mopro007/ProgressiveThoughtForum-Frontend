@@ -8,9 +8,10 @@ const DeleteArticle = ({ articleId, onDelete, onClose }) => {
 
   const handleDelete = async () => {
     try {
+      console.log('Deleting article with ID:', articleId);
       setLoading(true);
       const response = await axiosInstance_articles.delete('/article', {
-        _id: articleId,
+        "_id": articleId,
       });
       onDelete();
     } catch (err) {
