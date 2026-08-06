@@ -93,8 +93,12 @@
   font-size: 1.1rem;
 }
 
-.article-body p {
-  margin-bottom: 1.5em;
+.article-body {
+  white-space: pre-wrap;
+  line-height: 1.8;
+  font-size: 1.1rem;
+  direction: rtl;
+  text-align: right;
 }
 
 .article-footer {
