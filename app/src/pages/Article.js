@@ -108,7 +108,7 @@ const Article = () => {
                 (Updated: {new Date(article.last_update).toLocaleDateString()})
               </span>
             )}
-            {user.role === "admin" && (
+            {user?.role === "admin" && (
               <div className='admin-actions'>
                 <button className="editButton" onClick={() => setEditWindowOpen(true)}>
                   تعديل المقالة
